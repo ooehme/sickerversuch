@@ -115,7 +115,7 @@ export default function SickerversuchFormular() {
           <SignatureSection form={form} isPrintMode={isPrintMode} onFieldChange={updateField} />
         </form>
 
-        <footer className="a4-footer">büro für baugrund und geologie · Alfred-Neubert-Str. 1 · 09123 Chemnitz · 0371 31592577 · info@buero-bg.de</footer>
+        <footer className="a4-footer">büro für baugrund, geologie und maschinenbau · Arno-Schreiter-Straße 7 · 09123 Chemnitz · 0371 31592577 · info@buero-bg.de</footer>
       </section>
 
       <MobileView
