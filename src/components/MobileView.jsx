@@ -1,5 +1,6 @@
 import { WATER_TYPES } from "../constants/waterTypes.js";
-import { formatDecimal, formatScientific } from "../lib/format.js";
+import { formatDecimal } from "../lib/format.js";
+import { ScientificValue } from "./ScientificValue.jsx";
 
 const TEST_FIELDS = [
   ["start", "Anfang"],
@@ -183,7 +184,7 @@ export function MobileView({
                 </div>
                 <div className="mobile-result-row">
                   <span>k<sub>f</sub> Versuch</span>
-                  <strong>{calculation.kfValues[index] > 0 ? formatScientific(calculation.kfValues[index]) : "—"}</strong>
+                  <strong>{calculation.kfValues[index] > 0 ? <ScientificValue value={calculation.kfValues[index]} /> : "—"}</strong>
                 </div>
               </article>
             ))}
@@ -199,7 +200,9 @@ export function MobileView({
           </div>
           <div>
             <span>k<sub>f</sub></span>
-            <strong>{formatScientific(calculation.avgKf) || "—"} m/s</strong>
+            <strong>
+              <ScientificValue value={calculation.avgKf} fallback="—" /> m/s
+            </strong>
           </div>
         </div>
       </MobileSection>

@@ -1,5 +1,6 @@
-import { formatDecimal, formatScientific } from "../../lib/format.js";
+import { formatDecimal } from "../../lib/format.js";
 import { PrintValue } from "../PrintValue.jsx";
+import { ScientificValue } from "../ScientificValue.jsx";
 
 const TEST_FIELDS = ["start", "m15", "m30", "m45", "m60"];
 
@@ -47,7 +48,9 @@ export function TestsSection({ tests, calculation, onOpenAddDialog, onUpdateTest
                   </td>
                 ))}
                 <td className="text-center">{formatDecimal(calculation.drops[index])} m</td>
-                <td className="text-center monospace-cell kf-cell">{calculation.kfValues[index] > 0 ? formatScientific(calculation.kfValues[index]) : "—"}</td>
+                <td className="text-center monospace-cell kf-cell">
+                  {calculation.kfValues[index] > 0 ? <ScientificValue value={calculation.kfValues[index]} /> : "—"}
+                </td>
                 <td className="text-center print:hidden">
                   <button type="button" className="icon-button danger" onClick={() => onRemoveTest(index)} aria-label="Versuch löschen" title="Versuch löschen">
                     <span aria-hidden="true">&#128465;</span>
@@ -58,7 +61,9 @@ export function TestsSection({ tests, calculation, onOpenAddDialog, onUpdateTest
             <tr>
               <td colSpan="6" className="text-right font-bold">Mittelwert</td>
               <td className="text-center font-bold">{formatDecimal(calculation.avgDrop)} m</td>
-              <td className="text-center font-bold monospace-cell">{formatScientific(calculation.avgKf)}</td>
+              <td className="text-center font-bold monospace-cell">
+                <ScientificValue value={calculation.avgKf} />
+              </td>
               <td className="print:hidden" />
             </tr>
           </tbody>

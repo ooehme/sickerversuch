@@ -1,5 +1,5 @@
 import { calculateKfForTest, calculateSickerversuch, parseDecimal } from "./calculations.js";
-import { formatDecimal } from "./format.js";
+import { formatDecimal, formatScientific } from "./format.js";
 
 export function runCalculationTests() {
   const testRows = [
@@ -14,6 +14,7 @@ export function runCalculationTests() {
 
   console.assert(parseDecimal("1,05") === 1.05, "parseDecimal handles comma decimals");
   console.assert(formatDecimal(0.01) === "0,01", "formatDecimal uses comma decimals");
+  console.assert(formatScientific(0.00005051) === "5,051 * 10\u207b\u2075", "formatScientific uses readable power notation");
   console.assert(sample.drops.length === 3, "calculation returns one drop per test row");
   console.assert(sample.kfValues.length === 3, "calculation returns one kf value per test row");
   console.assert(sample.evaluableKfValues.length === 2, "zero kf values are excluded from mean kf calculation");

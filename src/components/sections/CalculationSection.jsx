@@ -1,5 +1,5 @@
-import { formatScientific } from "../../lib/format.js";
 import { MathFormula } from "../MathFormula.jsx";
+import { ScientificValue } from "../ScientificValue.jsx";
 
 export function CalculationSection({ form, calculation }) {
   return (
@@ -16,7 +16,9 @@ export function CalculationSection({ form, calculation }) {
         <div className="calculation-result space-y-3 self-start">
           <label className="field compact">
             <span>k<sub>f</sub> =</span>
-            <output className="result-box">{formatScientific(calculation.avgKf)}</output>
+            <output className="result-box">
+              <ScientificValue value={calculation.avgKf} />
+            </output>
             <em>m/s</em>
           </label>
           <p className="text-xs text-neutral-600">Versuche ohne messbare Absenkung werden beim Mittelwert nicht berücksichtigt.</p>

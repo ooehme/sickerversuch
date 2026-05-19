@@ -4,8 +4,39 @@ export function formatDecimal(value, digits = 2) {
 }
 
 export function formatScientific(value) {
-  if (!Number.isFinite(value) || value <= 0) return "";
-  return value.toExponential(3).replace(".", ",");
+  const parts = formatScientificParts(value);
+  if (!parts) return "";
+  return `${parts.mantissa} * 10${formatSuperscript(parts.exponent)}`;
+}
+
+export function formatScientificParts(value) {
+  if (!Number.isFinite(value) || value <= 0) return null;
+  const [mantissa, exponent] = value.toExponential(3).split("e");
+  return {
+    mantissa: mantissa.replace(".", ","),
+    exponent: String(Number(exponent)),
+  };
+}
+
+function formatSuperscript(value) {
+  const superscriptDigits = {
+    "-": "\u207b",
+    0: "\u2070",
+    1: "\u00b9",
+    2: "\u00b2",
+    3: "\u00b3",
+    4: "\u2074",
+    5: "\u2075",
+    6: "\u2076",
+    7: "\u2077",
+    8: "\u2078",
+    9: "\u2079",
+  };
+
+  return String(value)
+    .split("")
+    .map((character) => superscriptDigits[character] ?? character)
+    .join("");
 }
 
 export function formatDate(value) {

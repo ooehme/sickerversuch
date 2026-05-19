@@ -81,6 +81,17 @@ body,
   display: initial;
 }
 
+.scientific-value {
+  white-space: nowrap;
+}
+
+.scientific-value sup {
+  position: relative;
+  top: -0.45em;
+  font-size: 0.72em;
+  line-height: 0;
+}
+
 .mobile-page {
   display: none;
 }
