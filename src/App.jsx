@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { AddLayerDialog } from "./components/dialogs/AddLayerDialog.jsx";
 import { AddTestDialog } from "./components/dialogs/AddTestDialog.jsx";
+import { MobileView } from "./components/MobileView.jsx";
 import { BasicDataSection } from "./components/sections/BasicDataSection.jsx";
 import { CalculationSection } from "./components/sections/CalculationSection.jsx";
 import { DimensionsSection } from "./components/sections/DimensionsSection.jsx";
@@ -116,6 +117,23 @@ export default function SickerversuchFormular() {
 
         <footer className="a4-footer">büro für baugrund und geologie · Alfred-Neubert-Str. 1 · 09123 Chemnitz · 0371 31592577 · info@buero-bg.de</footer>
       </section>
+
+      <MobileView
+        form={form}
+        waterLevels={waterLevels}
+        layers={layers}
+        tests={tests}
+        calculation={calculation}
+        isPrintMode={isPrintMode}
+        onFieldChange={updateField}
+        onWaterLevelChange={updateWaterLevel}
+        onOpenLayerDialog={() => layerDialogRef.current?.showModal()}
+        onOpenTestDialog={() => testDialogRef.current?.showModal()}
+        onUpdateLayer={updateLayer}
+        onUpdateTest={updateTest}
+        onRemoveLayer={removeLayer}
+        onRemoveTest={removeTest}
+      />
 
       <AddLayerDialog dialogRef={layerDialogRef} onAdd={(entry) => setLayers((prev) => [...prev, entry])} />
       <AddTestDialog dialogRef={testDialogRef} onAdd={(entry) => setTests((prev) => [...prev, entry])} />
