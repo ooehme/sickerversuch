@@ -1,0 +1,706 @@
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  background: #f5f5f5;
+}
+
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 12mm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
+
+.form-layout {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 0.55rem;
+}
+
+.form-section {
+  border: 1px solid #d4d4d4;
+  border-radius: 0.35rem;
+  padding: 0.55rem;
+  background: #fff;
+}
+
+.section-title {
+  margin-bottom: 0.35rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.calculation-section {
+  background: #fafafa;
+}
+
+.signature-section {
+  border: 0;
+  padding: 0;
+}
+
+.empty-state {
+  border: 1px dashed #a3a3a3;
+  border-top: 0;
+  padding: 0.45rem;
+  text-align: center;
+  color: #737373;
+  background: #fafafa;
+}
+
+.a4-footer {
+  margin-top: auto;
+  border-top: 1px solid #d4d4d4;
+  padding-top: 2mm;
+  text-align: center;
+  font-size: 0.68rem;
+  color: #525252;
+}
+
+.print-only,
+.print-value {
+  display: none;
+}
+
+.screen-only {
+  display: initial;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.field span {
+  white-space: nowrap;
+}
+
+.field input,
+.field select,
+table input,
+.water-depth-control input,
+.dialog-field input,
+.dialog-field textarea,
+.result-box {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #a3a3a3;
+  border-radius: 0.2rem;
+  background: #f8fafc;
+  padding: 0.22rem 0.4rem;
+  font-weight: 500;
+  transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #262626;
+  box-shadow: 0 0 0 2px rgba(38, 38, 38, 0.12);
+  background: #ffffff;
+}
+
+input:disabled {
+  color: #737373;
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.result-box {
+  display: inline-flex;
+  min-height: 1.7rem;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.field.compact input,
+.field.compact output {
+  max-width: 9rem;
+}
+
+.field em {
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.water-option {
+  display: grid;
+  gap: 0.4rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 0.3rem;
+  padding: 0.45rem;
+  font-weight: 600;
+}
+
+.water-option-heading,
+.water-depth-control {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.water-depth-control {
+  font-weight: 500;
+}
+
+.water-depth-control em {
+  flex: 0 0 auto;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.dialog-field {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  background: #171717;
+  color: white;
+}
+
+.btn.secondary {
+  border: 1px solid #737373;
+  background: white;
+  color: #171717;
+}
+
+.print-button {
+  justify-self: end;
+  min-width: 9rem;
+}
+
+.icon-button {
+  display: inline-flex;
+  width: 1.75rem;
+  height: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.icon-button.danger {
+  color: #991b1b;
+}
+
+.icon-button.danger:hover {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+.action-heading {
+  width: 2.4rem;
+}
+
+.monospace-cell {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.74rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.74rem;
+}
+
+.test-number-col {
+  width: 8%;
+}
+
+.h-start-col {
+  width: 7%;
+}
+
+.water-level-col {
+  width: 10%;
+}
+
+.drop-col {
+  width: 13%;
+}
+
+.kf-col {
+  width: 17%;
+}
+
+.action-col {
+  width: 5%;
+}
+
+.kf-header,
+.kf-cell {
+  white-space: nowrap;
+}
+
+th,
+td {
+  border: 1px solid #6b7280;
+  padding: 0.12rem;
+  vertical-align: middle;
+}
+
+th {
+  background: #e5e7eb;
+  font-weight: 600;
+  text-align: center;
+}
+
+td input {
+  border: 0;
+  background: #fff;
+  padding: 0.2rem;
+}
+
+.math-formula {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  border: 1px solid #d4d4d4;
+  background: #fafafa;
+  padding: 0.55rem;
+  white-space: nowrap;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.78rem;
+}
+
+.formula-symbol,
+.formula-unit {
+  font-weight: 600;
+}
+
+.fraction {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.45;
+}
+
+.main-fraction > .top {
+  border-bottom: 1.8px solid #171717;
+  padding: 0 0.75rem 0.18rem;
+}
+
+.main-fraction > .bottom {
+  padding: 0.18rem 0.75rem 0;
+}
+
+.denominator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem;
+}
+
+.large-bracket,
+.large-brace,
+.large-paren {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.large-bracket {
+  font-size: 1.9rem;
+  transform: scaleY(1.35);
+  margin: 0 0.03rem;
+}
+
+.large-brace {
+  font-size: 1.82rem;
+  transform: scaleY(1.28);
+  margin: 0 0.02rem;
+}
+
+.large-paren {
+  font-size: 1.72rem;
+  transform: scaleY(1.22);
+  margin: 0 0.01rem;
+}
+
+.inline-fraction {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.82em;
+  line-height: 1.15;
+  transform: translateY(0.2em);
+}
+
+.inline-fraction > .top {
+  border-bottom: 1px solid #171717;
+  padding: 0 0.25rem 0.08rem;
+}
+
+.inline-fraction > .bottom {
+  padding: 0.08rem 0.25rem 0;
+}
+
+@media print {
+  html,
+  body,
+  #root {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 !important;
+    background: white !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    overflow: visible !important;
+  }
+
+  main {
+    min-height: 297mm !important;
+  }
+
+  input,
+  select,
+  textarea {
+    display: none !important;
+  }
+
+  .print-value {
+    display: inline-flex !important;
+    min-height: 1.2rem;
+    align-items: baseline;
+    border-bottom: 1px solid #737373;
+    color: #171717 !important;
+    font-weight: 500;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    padding: 0 0.08rem;
+  }
+
+  td .print-value {
+    display: block !important;
+    min-height: 1rem;
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .water-options {
+    display: none !important;
+  }
+
+  .water-print-summary {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .water-print-card {
+    border: 1px solid #bdbdbd;
+    padding: 0.28rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .water-print-title {
+    margin-bottom: 0.16rem;
+    font-weight: 650;
+  }
+
+  .basic-data-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .dimensions-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.45rem !important;
+  }
+
+  .field {
+    min-width: 0;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .field > span:first-child {
+    flex: 0 0 auto;
+  }
+
+  .field .print-value {
+    flex: 1 1 auto;
+    min-width: 16mm;
+  }
+
+  .field.compact .print-value {
+    flex: 0 1 30mm;
+    min-width: 18mm;
+    max-width: none;
+  }
+
+  .result-box {
+    min-height: 0;
+    justify-content: flex-start;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: #171717 !important;
+  }
+
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  table {
+    table-layout: fixed;
+    font-size: 0.68rem;
+    line-height: 1.15;
+  }
+
+  .test-number-col {
+    width: 8% !important;
+  }
+
+  .h-start-col {
+    width: 6.5% !important;
+  }
+
+  .water-level-col {
+    width: 9.5% !important;
+  }
+
+  .drop-col {
+    width: 13% !important;
+  }
+
+  .kf-col {
+    width: 18% !important;
+  }
+
+  .action-col {
+    display: none !important;
+    width: 0 !important;
+  }
+
+  th,
+  td {
+    padding: 0.1rem 0.12rem;
+  }
+
+  .layers-table {
+    table-layout: auto;
+  }
+
+  .layers-table th:first-child {
+    width: 28mm;
+  }
+
+  .test-table th,
+  .test-table td {
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .calculation-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 32mm !important;
+    gap: 4mm !important;
+    align-items: start !important;
+  }
+
+  .calculation-result {
+    width: 32mm !important;
+    min-width: 0 !important;
+  }
+
+  .calculation-result p {
+    display: none !important;
+  }
+
+  .calculation-result .field {
+    gap: 0.12rem !important;
+  }
+
+  .calculation-result .result-box {
+    flex: 1 1 auto;
+    font-size: 0.62rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .calculation-section .math-formula {
+    overflow: hidden !important;
+    padding: 0.28rem !important;
+    gap: 0.14rem !important;
+    font-size: 0.58rem !important;
+  }
+
+  .calculation-section .main-fraction > .top {
+    padding: 0 0.32rem 0.1rem !important;
+  }
+
+  .calculation-section .main-fraction > .bottom {
+    padding: 0.1rem 0.32rem 0 !important;
+  }
+
+  .calculation-section .denominator {
+    gap: 0.08rem !important;
+  }
+
+  .calculation-section .large-bracket {
+    font-size: 1.45rem !important;
+  }
+
+  .calculation-section .large-brace {
+    font-size: 1.38rem !important;
+  }
+
+  .calculation-section .large-paren {
+    font-size: 1.32rem !important;
+  }
+
+  .calculation-section .inline-fraction > .top {
+    padding: 0 0.14rem 0.04rem !important;
+  }
+
+  .calculation-section .inline-fraction > .bottom {
+    padding: 0.04rem 0.14rem 0 !important;
+  }
+
+  .signature-section {
+    display: grid !important;
+    grid-template-columns: 54mm 68mm !important;
+    justify-content: space-between !important;
+    gap: 8mm !important;
+    padding-top: 6mm !important;
+    align-items: end !important;
+  }
+
+  .signature-fields {
+    display: none !important;
+  }
+
+  .place-date-print {
+    display: block !important;
+    margin: 0 !important;
+    border-bottom: 0;
+    padding: 0 0.08rem 0.08rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .signature-box {
+    width: 68mm !important;
+    min-width: 0 !important;
+    margin-top: 0 !important;
+    align-self: end !important;
+    justify-self: end !important;
+  }
+
+  .signature-box > div {
+    padding-top: 8mm !important;
+  }
+
+  dialog,
+  button,
+  .screen-only,
+  .print-button,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:bg-white {
+    background: white !important;
+  }
+
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+
+  .print\:p-4 {
+    padding: 1rem !important;
+  }
+
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+
+  .print\:rounded-none {
+    border-radius: 0 !important;
+  }
+
+  .form-section,
+  .signature-section,
+  .a4-footer {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .form-section {
+    border-color: #bdbdbd;
+  }
+
+  .empty-state {
+    display: none !important;
+  }
+
+  .a4-page {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 12mm !important;
+    box-shadow: none !important;
+  }
+
+  .a4-footer {
+    margin-top: auto !important;
+  }
+
+  .print\:max-w-none {
+    max-width: none !important;
+  }
+}
